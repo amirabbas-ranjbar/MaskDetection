@@ -100,6 +100,8 @@ maskNet = load_model(args["model"])
 # initialize the video stream and allow the camera sensor to warm up
 print("[INFO] starting video stream...")
 vs = VideoStream(src='http://192.168.0.108:8080/video').start()
+#vs = VideoStream(src='http://192.168.100.101:8080/video.cgi').start()
+
 # time.sleep(2.0)
 
 # loop over the frames from the video stream
@@ -107,7 +109,7 @@ while True:
 	# grab the frame from the threaded video stream and resize it
 	# to have a maximum width of 400 pixels
 	frame = vs.read()
-	frame = imutils.resize(frame, width=400)
+	frame = imutils.resize(frame, width=800)
 
 	# detect faces in the frame and determine if they are wearing a
 	# face mask or not
@@ -118,7 +120,7 @@ while True:
 	for (box, pred) in zip(locs, preds):
 		# unpack the bounding box and predictions
 		(startX, startY, endX, endY) = box
-		(mask, withoutMask) = pred"python.linting.pylintArgs": ["--generate-members"]
+		(mask, withoutMask) = pred
 
 		# determine the class label and color we'll use to draw
 		# the bounding box and text

@@ -99,7 +99,7 @@ maskNet = load_model(args["model"])
 
 # initialize the video stream and allow the camera sensor to warm up
 print("[INFO] starting video stream...")
-vs = VideoStream(src='http://192.168.100.101:8080/video.cgi').start()
+vs = VideoStream(src='http://192.168.0.108:8080/video').start()
 # time.sleep(2.0)
 
 # loop over the frames from the video stream
@@ -118,7 +118,7 @@ while True:
 	for (box, pred) in zip(locs, preds):
 		# unpack the bounding box and predictions
 		(startX, startY, endX, endY) = box
-		(mask, withoutMask) = pred
+		(mask, withoutMask) = pred"python.linting.pylintArgs": ["--generate-members"]
 
 		# determine the class label and color we'll use to draw
 		# the bounding box and text
